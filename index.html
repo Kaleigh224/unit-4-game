@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        .crystal-image {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+
+    <div id="crystals">
+    </div>
+    <img src="https://www.energymuse.com/crystal-test/img/crystaltest-am-stone.jpg" class="crystal" id="crystalNumber1">
+    <img src="https://media1.popsugar-assets.com/files/thumbor/2B7Ms8yVmTDGZpvz7tE5ztaOfKM/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2017/01/31/949/n/3019466/d24c28895891060b633e37.59965847_edit_img_image_43088322_1485897897/i/What-Aura-Crystals.jpg"
+        class="crystal" id="crystalNumber2">
+    <img src="https://static1.squarespace.com/static/576f2cb6bebafbef6654384a/t/596ce3ecbe6594a4f22736f9/1500308490330/Copper+Sulfate+Crystals"
+        class="crystal" id="crystalNumber3">
+    <img src="https://s3-eu-west-1.amazonaws.com/cdn.webfactore.co.uk/sr_524324_large.jpg" class="crystal" id="crystalNumber4">
+    <!-- JAVASCRIPT -->
+    <!-- ============================ -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        //VARIABLES
+        var score= 0;
+        var crystalNumber1;
+        var crystalNumber2;
+        var crystalNumber3;
+        var crystalNumber4;
+        var randomNumber;
+        var crystalCounter= 0;
+        var win= 0;
+        var loss= 0;
+
+
+
+        //Generate random number - reference Math.random function
+        randomNumber = Math.floor(Math.random() * 120) + 19
+
+
+        //Assign random numbers to the 4 crystals
+        crystalNumber1 = Math.floor(Math.random() * 12) + 1
+        crystalNumber2 = Math.floor(Math.random() * 12) + 1
+        crystalNumber3 = Math.floor(Math.random() * 12) + 1
+        crystalNumber4 = Math.floor(Math.random() * 12) + 1
+
+
+        //Register when user has clicked crystal
+        $(".crystal").on("click", function () {
+            var crystalValue = $(this).attr("data-crystal")
+            crystalValue = parseInt(crystalValue);
+
+            crystalCounter += crystalValue;
+            console.log(crystalCounter);
+        })
+
+        //Keeps track of the number value when user clicks crystals
+        $("#crystalNumber1").attr("data-crystal", crystalNumber1)
+        $("#crystalNumber2").attr("data-crystal", crystalNumber2)
+        $("#crystalNumber3").attr("data-crystal", crystalNumber3)
+        $("#crystalNumber4").attr("data-crystal", crystalNumber4)
+
+
+        //Determine wins/loss
+
+
+        //Generate new random guess number after each win/loss
+
+        //Reassign number values to crysltals
+
+        //Track wins and losses
+
+        //Display wins and losses
+
+    </script>
+
+
+
+</body>
+
+</html>
