@@ -6,28 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <style type="text/css">
         .crystal-image {
             width: 300px;
             height: 300px;
         }
     </style>
-
+<link rel="stylesheet" filetype="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
     <h1>Number to Guess: <span id="number-to-guess"></span></h1>
 
+
+
     <div id="crystals">
     </div>
-    <img src="https://www.energymuse.com/crystal-test/img/crystaltest-am-stone.jpg" class="crystal" id="crystalNumber1">
-    <img src="https://media1.popsugar-assets.com/files/thumbor/2B7Ms8yVmTDGZpvz7tE5ztaOfKM/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2017/01/31/949/n/3019466/d24c28895891060b633e37.59965847_edit_img_image_43088322_1485897897/i/What-Aura-Crystals.jpg"
-        class="crystal" id="crystalNumber2">
-    <img src="https://static1.squarespace.com/static/576f2cb6bebafbef6654384a/t/596ce3ecbe6594a4f22736f9/1500308490330/Copper+Sulfate+Crystals"
-        class="crystal" id="crystalNumber3">
-    <img src="https://s3-eu-west-1.amazonaws.com/cdn.webfactore.co.uk/sr_524324_large.jpg" class="crystal" id="crystalNumber4">
+    <img src="assets/images/amethyst.jpg" class="crystal" id="crystalNumber1">
+    <img src="assets/images/auracrystal.jpg" class="crystal" id="crystalNumber2">
+    <img src="assets/images/bluecrystal.jpg" class="crystal" id="crystalNumber3">
+    <img src="assets/images/rosequartz.jpg" class="crystal" id="crystalNumber4">
+
+    <div>
+        <p id="wins"></p>
+        <p id="losses"></p>
+    </div>
+
+    
     <!-- JAVASCRIPT -->
     <!-- ============================ -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -35,20 +43,25 @@
     <script type="text/javascript">
 
         //VARIABLES
-        var score= 0;
+        var score = 0;
         var crystalNumber1;
         var crystalNumber2;
         var crystalNumber3;
         var crystalNumber4;
         var randomNumber;
-        var crystalCounter= 0;
-        var win= 0;
-        var loss= 0;
+        var crystalCounter = 0;
+        var win = 0;
+        var loss = 0;
 
 
 
         //Generate random number - reference Math.random function
         randomNumber = Math.floor(Math.random() * 120) + 19
+
+        //Display random number
+        $("#number-to-guess").text(randomNumber);
+        $("#win").text(win);
+        $("#loss").text(loss);
 
 
         //Assign random numbers to the 4 crystals
@@ -75,15 +88,15 @@
 
 
         //Determine wins/loss
-        if((crystalCounter === randomNumber)) {
+        if ((crystalCounter === randomNumber)) {
             wins++;
         } else {
             losses++;
         }
-        }
-
 
         //Generate new random guess number after each win/loss
+
+
 
         //Reassign number values to crysltals
 
