@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Crystals Collector!</title>
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <style type="text/css">
@@ -19,7 +19,18 @@
 </head>
 
 <body>
-    <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+    <h1 id="header">Crystal Collector!</h1>
+
+    <section id="instructions">
+        <h4>Instructions:</h4>
+        <p>You will be given a random number below.</p>
+        Underneath your random number, are four crystals, all having a random number value at the start of each round.<br>
+        Click each crystal to view its value and try to match the total value of the crystals clicked to the number generated at the top.<br>
+        At the end of each round, a new random number will be generated and the crystals will reset to new number values as well.</p>
+        <h4>Good Luck!</h4>
+        <br>
+    </section>
+    <h2>Number to Guess: <span id="number-to-guess"></span></h2>
 
 
 
@@ -28,85 +39,25 @@
     <img src="assets/images/amethyst.jpg" class="crystal" id="crystalNumber1">
     <img src="assets/images/auracrystal.jpg" class="crystal" id="crystalNumber2">
     <img src="assets/images/bluecrystal.jpg" class="crystal" id="crystalNumber3">
-    <img src="assets/images/rosequartz.jpg" class="crystal" id="crystalNumber4">
-
+    <img src="assets/images/rosequartz.jpg" class="crystal" id="crystalNumber4">   
+    
+    <div>
+        <p id="value"></p>
+    </div>
+    
+    
     <div>
         <p id="wins"></p>
         <p id="losses"></p>
     </div>
 
     
+    
     <!-- JAVASCRIPT -->
     <!-- ============================ -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
-
-        //VARIABLES
-        var score = 0;
-        var crystalNumber1;
-        var crystalNumber2;
-        var crystalNumber3;
-        var crystalNumber4;
-        var randomNumber;
-        var crystalCounter = 0;
-        var win = 0;
-        var loss = 0;
-
-
-
-        //Generate random number - reference Math.random function
-        randomNumber = Math.floor(Math.random() * 120) + 19
-
-        //Display random number
-        $("#number-to-guess").text(randomNumber);
-        $("#win").text(win);
-        $("#loss").text(loss);
-
-
-        //Assign random numbers to the 4 crystals
-        crystalNumber1 = Math.floor(Math.random() * 12) + 1
-        crystalNumber2 = Math.floor(Math.random() * 12) + 1
-        crystalNumber3 = Math.floor(Math.random() * 12) + 1
-        crystalNumber4 = Math.floor(Math.random() * 12) + 1
-
-
-        //Register when user has clicked crystal
-        $(".crystal").on("click", function () {
-            var crystalValue = $(this).attr("data-crystal")
-            crystalValue = parseInt(crystalValue);
-
-            crystalCounter += crystalValue;
-            console.log(crystalCounter);
-        })
-
-        //Keeps track of the number value when user clicks crystals
-        $("#crystalNumber1").attr("data-crystal", crystalNumber1)
-        $("#crystalNumber2").attr("data-crystal", crystalNumber2)
-        $("#crystalNumber3").attr("data-crystal", crystalNumber3)
-        $("#crystalNumber4").attr("data-crystal", crystalNumber4)
-
-
-        //Determine wins/loss
-        if ((crystalCounter === randomNumber)) {
-            wins++;
-        } else {
-            losses++;
-        }
-
-        //Generate new random guess number after each win/loss
-
-
-
-        //Reassign number values to crysltals
-
-        //Track wins and losses
-
-        //Display wins and losses
-
-    </script>
-
-
+    <script src="./assets/javascript/game.js"></script>
 
 </body>
 
